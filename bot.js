@@ -49,10 +49,10 @@ bot.on("message", (msg) => {
     return;
   }
   // Apply formatting function to the received text
-  const formattedText = "<pre>" + updateText(text) + "</pre>";
+  const formattedText = updateText(text);
 
   // Send the formatted text back to the user
-  bot.sendMessage(chatId, formattedText, { parse_mode: "HTML" });
+  bot.sendMessage(chatId, formattedText);
 });
 
 // Log any errors
