@@ -45,13 +45,14 @@ bot.on("message", (msg) => {
       chatId,
       "Welcome! \nBul bot arqalı eski álipbedegi háriplerińizdi jańasına tez ózgertip alıwıńız múmkin. Onıń ushın tekstińizde ózgertiliwi kerek bolǵan hárip ' yáki ’ belgisi arqalı jazılıwı kerek. Mısalı: Sa'lem -> Sálem \n\nWebsayt: https://replaceletter.netlify.app/"
     );
-  } else {
-    // Apply formatting function to the received text
-    const formattedText = "<pre>" + updateText(text) + "</pre>";
-
-    // Send the formatted text back to the user
-    bot.sendMessage(chatId, formattedText, { parse_mode: "HTML" });
+    // to stop further execution
+    return;
   }
+  // Apply formatting function to the received text
+  const formattedText = "<pre>" + updateText(text) + "</pre>";
+
+  // Send the formatted text back to the user
+  bot.sendMessage(chatId, formattedText, { parse_mode: "HTML" });
 });
 
 // Log any errors
