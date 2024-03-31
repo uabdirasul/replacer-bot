@@ -47,7 +47,7 @@ bot.on("message", (msg) => {
     );
   } else {
     // Apply formatting function to the received text
-    const formattedText = "<code>" + updateText(text) + "</code>";
+    const formattedText = "<pre>" + updateText(text) + "</pre>";
 
     // Send the formatted text back to the user
     bot.sendMessage(chatId, formattedText, { parse_mode: "HTML" });
