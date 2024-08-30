@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "axios": "^1.7.5",
     "dotenv": "^16.4.5",
     "node-telegram-bot-api": "^0.65.1"
   },
@@ -7,9 +8,8 @@
   "description": "🤖 Telegram Text Formatter Bot",
   "version": "1.0.0",
   "main": "bot.js",
-  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node bot.js"
   },
   "author": "",
   "license": "ISC"
