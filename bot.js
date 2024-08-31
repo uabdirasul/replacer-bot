@@ -1,5 +1,6 @@
 const TelegramBot = require("node-telegram-bot-api");
 const axios = require("axios");
+const { v4: uuidv4 } = require("uuid");
 require("dotenv").config();
 
 // Replace 'YOUR_TELEGRAM_BOT_TOKEN' with your actual bot token
@@ -89,4 +90,29 @@ function getFormattedInteractionTime() {
 // Log any errors
 bot.on("polling_error", (error) => {
   console.log(error);
+});
+
+bot.on("inline_query", (query) => {
+  const queryText = query.query; // Get the user's input // Check if the query text is not empty
+
+  if (queryText) {
+    // Process the query text using your custom function
+    const resultText = updateText(queryText); // Prepare the inline result with valid input_message_content
+
+    const results = [
+      {
+        type: "article",
+        id: uuidv4(),
+        title: "Nátiyje: ",
+        input_message_content: {
+          message_text: resultText
+        },
+        description: resultText // Optional description
+      }
+    ];
+
+    bot.answerInlineQuery(query.id, results).catch((error) => {
+      console.error("Failed to answer inline query:", error);
+    });
+  }
 });
